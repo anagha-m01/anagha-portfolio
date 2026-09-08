@@ -20,7 +20,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="mx-auto max-w-6xl px-5 sm:px-8 py-20 sm:py-28">
+    <section id="contact" className="relative mx-auto max-w-6xl px-5 sm:px-8 py-20 sm:py-28">
       <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16">
         <motion.div
           initial={{ opacity: 0, y: 14 }}
@@ -41,14 +41,14 @@ export default function Contact() {
               href={`mailto:${profile.email}`}
               className="flex items-center gap-3 text-[14px] text-ink-soft hover:text-ink transition-colors"
             >
-              <Mail size={16} className="text-amber-soft" />
+              <Mail size={16} className="text-teal-soft" />
               {profile.email}
             </a>
             <a
               href={`tel:${profile.phone.replace(/\s+/g, "")}`}
               className="flex items-center gap-3 text-[14px] text-ink-soft hover:text-ink transition-colors"
             >
-              <Phone size={16} className="text-amber-soft" />
+              <Phone size={16} className="text-teal-soft" />
               {profile.phone}
             </a>
             <a
@@ -57,7 +57,7 @@ export default function Contact() {
               rel="noreferrer"
               className="flex items-center gap-3 text-[14px] text-ink-soft hover:text-ink transition-colors"
             >
-              <Linkedin size={16} className="text-amber-soft" />
+              <Linkedin size={16} className="text-teal-soft" />
               linkedin.com/in/anagha-m01
             </a>
             <a
@@ -66,11 +66,11 @@ export default function Contact() {
               rel="noreferrer"
               className="flex items-center gap-3 text-[14px] text-ink-soft hover:text-ink transition-colors"
             >
-              <Github size={16} className="text-amber-soft" />
+              <Github size={16} className="text-teal-soft" />
               github.com/anagha-m01
             </a>
             <p className="flex items-center gap-3 text-[14px] text-ink-soft">
-              <MapPin size={16} className="text-amber-soft" />
+              <MapPin size={16} className="text-teal-soft" />
               {profile.location}
             </p>
           </div>
@@ -82,7 +82,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="rounded-2xl border border-hair-soft bg-panel/40 p-6 sm:p-8"
+          className="glass rounded-2xl p-6 sm:p-8"
         >
           <div className="grid sm:grid-cols-2 gap-4">
             <div>
@@ -95,7 +95,7 @@ export default function Contact() {
                 required
                 value={form.name}
                 onChange={handleChange}
-                className="w-full rounded-md bg-bg-raised border border-hair px-3.5 py-2.5 text-[14px] text-ink focus:border-amber-soft outline-none transition-colors"
+                className="w-full rounded-md bg-bg-raised border border-hair px-3.5 py-2.5 text-[14px] text-ink focus:border-teal-soft outline-none transition-colors"
                 placeholder="Your name"
               />
             </div>
@@ -110,7 +110,7 @@ export default function Contact() {
                 required
                 value={form.email}
                 onChange={handleChange}
-                className="w-full rounded-md bg-bg-raised border border-hair px-3.5 py-2.5 text-[14px] text-ink focus:border-amber-soft outline-none transition-colors"
+                className="w-full rounded-md bg-bg-raised border border-hair px-3.5 py-2.5 text-[14px] text-ink focus:border-teal-soft outline-none transition-colors"
                 placeholder="you@company.com"
               />
             </div>
@@ -127,14 +127,15 @@ export default function Contact() {
               rows={4}
               value={form.message}
               onChange={handleChange}
-              className="w-full rounded-md bg-bg-raised border border-hair px-3.5 py-2.5 text-[14px] text-ink focus:border-amber-soft outline-none transition-colors resize-none"
+              className="w-full rounded-md bg-bg-raised border border-hair px-3.5 py-2.5 text-[14px] text-ink focus:border-teal-soft outline-none transition-colors resize-none"
               placeholder="What are you building?"
             />
           </div>
 
           <button
             type="submit"
-            className="mt-5 inline-flex items-center gap-2 rounded-md bg-amber px-5 py-2.5 text-[14px] font-medium text-bg hover:bg-amber-soft transition-colors"
+            className="mt-5 inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-[14px] font-medium text-bg transition-transform hover:-translate-y-0.5"
+            style={{ background: "linear-gradient(120deg, var(--color-teal), var(--color-blue))" }}
           >
             {sent ? "Opening your mail client…" : "Send message"}
             <Send size={14} />

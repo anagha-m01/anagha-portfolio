@@ -15,7 +15,7 @@ export default function AgentFlow() {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="relative flex-1 rounded-xl border border-hair-soft bg-panel/60 p-4 flex flex-col justify-between min-h-[128px]"
             >
-              <span className="font-mono text-[10px] text-amber-soft">
+              <span className="font-mono text-[10px] text-teal-soft">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <div>

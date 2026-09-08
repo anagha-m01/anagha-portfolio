@@ -5,20 +5,26 @@
   --font-body: "Inter", ui-sans-serif, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
-  --color-bg: #0B0D10;
-  --color-bg-raised: #101318;
-  --color-panel: #14171C;
-  --color-hair: #23262C;
-  --color-hair-soft: #1B1E23;
+  /* Midnight sky */
+  --color-bg: #05060f;
+  --color-bg-raised: #090b1b;
+  --color-panel: #0d1024;
+  --color-hair: #242b4a;
+  --color-hair-soft: #171a30;
 
-  --color-ink: #F1EFE9;
-  --color-ink-soft: #C8CACD;
-  --color-ink-mute: #868D96;
+  --color-ink: #eef0fb;
+  --color-ink-soft: #b7bcd9;
+  --color-ink-mute: #7b81a4;
 
-  --color-amber: #E8A33D;
-  --color-amber-soft: #F3C583;
-  --color-cyan: #5EC8D8;
-  --color-cyan-soft: #9FDEE7;
+  /* Aurora accents */
+  --color-teal: #35e0c2;
+  --color-teal-soft: #a6f5e6;
+  --color-blue: #4fa8f7;
+  --color-blue-soft: #a9d4fb;
+  --color-violet: #a480f2;
+  --color-violet-soft: #d3c1fa;
+  --color-green: #4ade9a;
+  --color-green-soft: #a8f3cd;
 }
 
 @layer base {
@@ -34,13 +40,14 @@
     color: var(--color-ink);
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
   ::selection {
-    background: var(--color-amber);
+    background: var(--color-teal);
     color: var(--color-bg);
   }
   :focus-visible {
-    outline: 2px solid var(--color-amber-soft);
+    outline: 2px solid var(--color-teal-soft);
     outline-offset: 3px;
     border-radius: 2px;
   }
@@ -55,40 +62,69 @@
 }
 
 @layer utilities {
-  .bg-grid {
-    background-image:
-      linear-gradient(to right, rgba(255,255,255,0.035) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255,255,255,0.035) 1px, transparent 1px);
-    background-size: 44px 44px;
-  }
+  /* Glassmorphism surface used throughout: cards, nav, form */
   .glass {
-    background: rgba(255,255,255,0.035);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    background: linear-gradient(160deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.07);
   }
+  .glass-hover {
+    transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+  }
+  .glass-hover:hover {
+    border-color: rgba(53, 224, 194, 0.35);
+    box-shadow: 0 0 0 1px rgba(53, 224, 194, 0.08), 0 20px 60px -20px rgba(79, 168, 247, 0.35);
+    transform: translateY(-2px);
+  }
+
   .text-balance {
     text-wrap: balance;
   }
-  .corner-brackets {
+
+  /* Gradient text used once, on the hero's core claim */
+  .text-aurora {
+    background: linear-gradient(100deg, var(--color-teal) 0%, var(--color-blue) 45%, var(--color-violet) 85%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Soft glow ring behind a focal element (diagram, avatar, cta) */
+  .glow-ring {
     position: relative;
   }
-  .corner-brackets::before,
-  .corner-brackets::after {
+  .glow-ring::before {
     content: "";
     position: absolute;
-    width: 10px;
-    height: 10px;
-    border-color: var(--color-hair);
-    opacity: 0.9;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(53,224,194,0.55), rgba(79,168,247,0.25), rgba(164,128,242,0.45));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
   }
-  .corner-brackets::before {
-    top: -1px; left: -1px;
-    border-top: 1px solid var(--color-amber-soft);
-    border-left: 1px solid var(--color-amber-soft);
+
+  /* Twinkling keyframes for small deco dots */
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.25; }
+    50% { opacity: 1; }
   }
-  .corner-brackets::after {
-    bottom: -1px; right: -1px;
-    border-bottom: 1px solid var(--color-amber-soft);
-    border-right: 1px solid var(--color-amber-soft);
+  .animate-twinkle {
+    animation: twinkle 3.2s ease-in-out infinite;
+  }
+
+  @keyframes drift {
+    0% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(2%, -3%, 0) scale(1.06); }
+    100% { transform: translate3d(0, 0, 0) scale(1); }
+  }
+  .animate-drift {
+    animation: drift 22s ease-in-out infinite;
+  }
+  .animate-drift-slow {
+    animation: drift 34s ease-in-out infinite;
   }
 }

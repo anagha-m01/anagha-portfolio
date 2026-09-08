@@ -23,21 +23,31 @@ export default function Nav() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-colors duration-300 ${
-        scrolled ? "bg-bg/85 backdrop-blur-md border-b border-hair" : "border-b border-transparent"
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+        scrolled ? "glass border-b border-hair-soft" : "border-b border-transparent"
       }`}
     >
       <nav className="mx-auto max-w-6xl px-5 sm:px-8 h-16 flex items-center justify-between">
-        <a href="#top" className="font-display text-[15px] tracking-tight text-ink flex items-center gap-2">
-          <span className="inline-flex h-2 w-2 rounded-full bg-amber" aria-hidden="true" />
+        <a href="#top" className="font-display text-[15px] tracking-tight text-ink flex items-center gap-2.5">
+          <span
+            className="inline-flex h-2 w-2 rounded-full animate-twinkle"
+            style={{ background: "linear-gradient(135deg, var(--color-teal), var(--color-violet))" }}
+            aria-hidden="true"
+          />
           {profile.name}
         </a>
 
         <ul className="hidden md:flex items-center gap-8 font-mono text-[13px] text-ink-mute">
           {links.map((l) => (
             <li key={l.href}>
-              <a href={l.href} className="hover:text-ink transition-colors">
+              <a
+                href={l.href}
+                className="relative py-1 hover:text-ink transition-colors group"
+              >
                 {l.label}
+                <span className="absolute left-0 -bottom-0.5 h-px w-0 group-hover:w-full transition-all duration-300"
+                  style={{ background: "linear-gradient(90deg, var(--color-teal), var(--color-violet))" }}
+                />
               </a>
             </li>
           ))}
@@ -54,7 +64,7 @@ export default function Nav() {
       </nav>
 
       {open && (
-        <div className="md:hidden bg-bg border-b border-hair px-5 pb-5">
+        <div className="md:hidden glass border-b border-hair-soft px-5 pb-5">
           <ul className="flex flex-col gap-1 font-mono text-sm">
             {links.map((l) => (
               <li key={l.href}>

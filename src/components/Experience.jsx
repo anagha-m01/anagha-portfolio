@@ -3,7 +3,7 @@ import { experience } from "../data/resumeData";
 
 export default function Experience() {
   return (
-    <section id="experience" className="mx-auto max-w-6xl px-5 sm:px-8 py-20 sm:py-28">
+    <section id="experience" className="relative mx-auto max-w-6xl px-5 sm:px-8 py-20 sm:py-28">
       <div className="mb-14">
         <h2 className="font-display text-3xl sm:text-4xl text-ink">Experience</h2>
       </div>
@@ -23,13 +23,14 @@ export default function Experience() {
             >
               <span
                 className={`absolute left-0 top-1.5 h-[15px] w-[15px] sm:h-[19px] sm:w-[19px] rounded-full border-2 ${
-                  job.current
-                    ? "border-amber bg-bg"
-                    : "border-hair bg-panel"
+                  job.current ? "border-teal bg-bg" : "border-hair bg-panel"
                 }`}
               >
                 {job.current && (
-                  <span className="absolute inset-[3px] rounded-full bg-amber animate-pulse" />
+                  <span
+                    className="absolute inset-[3px] rounded-full animate-pulse"
+                    style={{ background: "linear-gradient(135deg, var(--color-teal), var(--color-blue))" }}
+                  />
                 )}
               </span>
 
@@ -48,7 +49,7 @@ export default function Experience() {
               <ul className="mt-4 space-y-2.5 max-w-3xl">
                 {job.points.map((pt, idx) => (
                   <li key={idx} className="text-[15px] leading-relaxed text-ink-soft flex gap-3">
-                    <span className="text-amber mt-2 h-1 w-1 rounded-full bg-amber shrink-0" aria-hidden="true" />
+                    <span className="mt-2 h-1 w-1 rounded-full bg-teal shrink-0" aria-hidden="true" />
                     <span>{pt}</span>
                   </li>
                 ))}
@@ -58,7 +59,7 @@ export default function Experience() {
                 {job.tech.map((t) => (
                   <span
                     key={t}
-                    className="font-mono text-[11px] text-cyan-soft border border-hair rounded px-2 py-1"
+                    className="font-mono text-[11px] text-teal-soft border border-hair rounded px-2 py-1"
                   >
                     {t}
                   </span>

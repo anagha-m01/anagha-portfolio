@@ -25,7 +25,7 @@ export const pipeline = [
 
 export const experience = [
   {
-    role: "AI Intern",
+    role: "Software Engineer Intern",
     org: "QuanHack Solutions",
     location: "Kochi, Kerala",
     period: "Mar 2026 – Present",

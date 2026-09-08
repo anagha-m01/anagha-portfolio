@@ -7,7 +7,7 @@ export default function Projects() {
   const secondary = otherProjects[0];
 
   return (
-    <section id="projects" className="mx-auto max-w-6xl px-5 sm:px-8 py-20 sm:py-28">
+    <section id="projects" className="relative mx-auto max-w-6xl px-5 sm:px-8 py-20 sm:py-28">
       <div className="mb-14">
         <h2 className="font-display text-3xl sm:text-4xl text-ink">Projects</h2>
       </div>
@@ -18,11 +18,11 @@ export default function Projects() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.6 }}
-        className="corner-brackets rounded-2xl border border-hair-soft bg-bg-raised p-6 sm:p-10 mb-6"
+        className="glass glow-ring rounded-2xl p-6 sm:p-10 mb-6"
       >
         <div className="flex flex-wrap items-start justify-between gap-4 mb-6">
           <div>
-            <p className="font-mono text-[12px] text-cyan-soft mb-2">flagship project</p>
+            <p className="font-mono text-[12px] text-teal-soft mb-2">flagship project</p>
             <h3 className="font-display text-2xl sm:text-3xl text-ink">{flagshipProject.name}</h3>
           </div>
           {flagshipProject.github && (
@@ -30,7 +30,7 @@ export default function Projects() {
               href={flagshipProject.github}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-md border border-hair px-3 py-2 text-[13px] text-ink-soft hover:text-ink hover:border-ink-mute transition-colors shrink-0"
+              className="inline-flex items-center gap-1.5 rounded-md border border-hair px-3 py-2 text-[13px] text-ink-soft hover:text-ink hover:border-teal-soft/60 transition-colors shrink-0"
               aria-label={`View ${flagshipProject.name} on GitHub`}
             >
               <Github size={15} />
@@ -48,7 +48,7 @@ export default function Projects() {
         <ul className="mt-8 space-y-2.5 max-w-2xl">
           {flagshipProject.points.map((pt, idx) => (
             <li key={idx} className="text-[14.5px] leading-relaxed text-ink-soft flex gap-3">
-              <span className="text-amber mt-2 h-1 w-1 rounded-full bg-amber shrink-0" aria-hidden="true" />
+              <span className="mt-2 h-1 w-1 rounded-full bg-teal shrink-0" aria-hidden="true" />
               <span>{pt}</span>
             </li>
           ))}
@@ -58,7 +58,7 @@ export default function Projects() {
           {flagshipProject.tech.map((t) => (
             <span
               key={t}
-              className="font-mono text-[11px] text-amber-soft border border-hair rounded px-2 py-1"
+              className="font-mono text-[11px] text-violet-soft border border-hair rounded px-2 py-1"
             >
               {t}
             </span>
@@ -73,12 +73,12 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.55, delay: 0.1 }}
-          className="rounded-xl border border-hair-soft bg-panel/40 p-6 sm:p-8"
+          className="glass glass-hover rounded-xl p-6 sm:p-8"
         >
           <div className="flex flex-wrap items-start justify-between gap-4 mb-3">
             <div className="flex items-center gap-3 flex-wrap">
               <h4 className="font-display text-lg text-ink">{secondary.name}</h4>
-              <span className="font-mono text-[11px] text-cyan-soft whitespace-nowrap">
+              <span className="font-mono text-[11px] text-teal-soft whitespace-nowrap">
                 {secondary.metric}
               </span>
             </div>

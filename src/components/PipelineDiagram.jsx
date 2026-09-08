@@ -34,8 +34,9 @@ export default function PipelineDiagram() {
       >
         <defs>
           <linearGradient id="edgeGrad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#5EC8D8" stopOpacity="0.15" />
-            <stop offset="100%" stopColor="#E8A33D" stopOpacity="0.55" />
+            <stop offset="0%" stopColor="#35e0c2" stopOpacity="0.2" />
+            <stop offset="50%" stopColor="#4fa8f7" stopOpacity="0.5" />
+            <stop offset="100%" stopColor="#a480f2" stopOpacity="0.6" />
           </linearGradient>
         </defs>
 
@@ -47,7 +48,7 @@ export default function PipelineDiagram() {
           const d = `M ${p1.x} ${p1.y} Q ${midX} ${midY} ${p2.x} ${p2.y}`;
           return (
             <g key={i}>
-              <path d={d} fill="none" stroke="#23262C" strokeWidth="1.5" />
+              <path d={d} fill="none" stroke="#242b4a" strokeWidth="1.5" />
               <motion.path
                 d={d}
                 fill="none"
@@ -76,8 +77,8 @@ export default function PipelineDiagram() {
                 cx={p.x}
                 cy={p.y}
                 r="26"
-                fill="#101318"
-                stroke={isEndpoint ? "#E8A33D" : "#3A3F47"}
+                fill="#0d1024"
+                stroke={isEndpoint ? "#35e0c2" : "#3a3f6b"}
                 strokeWidth="1.2"
                 initial={{ scale: 0.85, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
@@ -89,7 +90,7 @@ export default function PipelineDiagram() {
                 cy={p.y}
                 r="26"
                 fill="none"
-                stroke="#E8A33D"
+                stroke="#35e0c2"
                 strokeWidth="1"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: [0, 0.5, 0], scale: [1, 1.35, 1.35] }}

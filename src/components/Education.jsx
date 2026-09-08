@@ -3,7 +3,7 @@ import { education } from "../data/resumeData";
 
 export default function Education() {
   return (
-    <section id="education" className="mx-auto max-w-6xl px-5 sm:px-8 py-14">
+    <section id="education" className="relative mx-auto max-w-6xl px-5 sm:px-8 py-14">
       <motion.div
         initial={{ opacity: 0, y: 14 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -17,7 +17,7 @@ export default function Education() {
         </div>
         <div className="text-right">
           <p className="font-mono text-[12px] text-ink-mute">{education.period}</p>
-          <p className="font-mono text-[12px] text-cyan-soft mt-1">CGPA {education.cgpa}</p>
+          <p className="font-mono text-[12px] text-teal-soft mt-1">CGPA {education.cgpa}</p>
         </div>
       </motion.div>
     </section>
