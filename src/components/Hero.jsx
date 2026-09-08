@@ -15,10 +15,16 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          <p className="font-mono text-[13px] text-teal-soft mb-5">
-            <span className="text-ink-mute">$</span> whoami{" "}
-            <span className="text-ink-soft">→ AI Engineer, Kochi/Thrissur</span>
-          </p>
+          <div className="flex flex-wrap items-center gap-3 mb-5">
+            <p className="font-mono text-[13px] text-teal-soft">
+              <span className="text-ink-mute">$</span> whoami{" "}
+              <span className="text-ink-soft">→ AI Engineer, Kochi/Thrissur</span>
+            </p>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-teal-soft/30 bg-teal/10 px-2.5 py-0.5 font-mono text-[11px] text-teal-soft">
+              <span className="h-1.5 w-1.5 rounded-full bg-teal animate-pulse" />
+              Open to opportunities
+            </span>
+          </div>
 
           <h1 className="font-display text-[3.4rem] leading-[0.98] sm:text-7xl sm:leading-[0.95] tracking-tight text-ink">
             {profile.name}
@@ -31,9 +37,9 @@ export default function Hero() {
           </p>
 
           <p className="mt-6 max-w-xl text-[15.5px] leading-relaxed text-ink-soft">
-            I design and ship multi-agent AI applications — orchestrated with
-            LangGraph, grounded with RAG, and deployed as production backend
-            services in FastAPI, PostgreSQL, and Docker.
+            Hands-on AI Engineer passionate about building agentic workflows with
+            LangGraph, grounding LLMs with RAG, and integrating backends with
+            FastAPI and Docker. Open to AI and software engineering roles.
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-3">

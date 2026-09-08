@@ -68,8 +68,9 @@ export default function About() {
             className="mt-8 text-[13.5px] text-ink-mute leading-relaxed"
           >
             Before AI, I deployed PLC, DCS, and SCADA systems on the factory
-            floor — where a system either behaves correctly under real
-            conditions or it doesn't ship. That standard hasn't changed.
+            floor — where a system either behaves reliably under real
+            conditions or it doesn't pass inspection. That same standard of
+            reliability guides how I build software today.
           </motion.p>
         </div>
       </div>
