@@ -1,6 +1,6 @@
 # Anagha M — Portfolio
 
-A personal portfolio site for Anagha M (AI Engineer), built with React, Vite, Tailwind CSS v4, and Framer Motion.
+A personal portfolio site for Anagha M (AI/ML Engineer), built with React, Vite, Tailwind CSS v4, and Framer Motion.
 
 ## Stack
 
@@ -58,3 +58,4 @@ This is a static Vite build, so it deploys to any static host:
   name is what the hero's "Resume" button links to.
 - Colors, fonts, and spacing tokens are centralized in the `@theme` block
   at the top of `src/index.css`.
+  

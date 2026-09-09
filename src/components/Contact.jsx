@@ -32,8 +32,8 @@ export default function Contact() {
             Let's build something that works in production.
           </h2>
           <p className="mt-5 text-[15px] leading-relaxed text-ink-soft max-w-sm">
-            Open to AI Engineer, Generative AI Engineer, and AI Software
-            Engineer roles. Reach out directly, or use the form.
+            Open to AI/ML Engineer and backend engineering roles. Reach out
+            directly, or use the form.
           </p>
 
           <div className="mt-8 space-y-3">
@@ -134,8 +134,7 @@ export default function Contact() {
 
           <button
             type="submit"
-            className="mt-5 inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-[14px] font-medium text-bg transition-transform hover:-translate-y-0.5"
-            style={{ background: "linear-gradient(120deg, var(--color-teal), var(--color-blue))" }}
+            className="mt-5 inline-flex items-center gap-2 rounded-md bg-teal px-5 py-2.5 text-[14px] font-medium text-bg transition-colors hover:bg-teal-soft"
           >
             {sent ? "Opening your mail client…" : "Send message"}
             <Send size={14} />

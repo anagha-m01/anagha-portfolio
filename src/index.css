@@ -16,15 +16,21 @@
   --color-ink-soft: #b7bcd9;
   --color-ink-mute: #7b81a4;
 
-  /* Aurora accents */
+  /* Single accent family — teal. No other hues used for UI. */
   --color-teal: #35e0c2;
   --color-teal-soft: #a6f5e6;
-  --color-blue: #4fa8f7;
-  --color-blue-soft: #a9d4fb;
-  --color-violet: #a480f2;
-  --color-violet-soft: #d3c1fa;
-  --color-green: #4ade9a;
-  --color-green-soft: #a8f3cd;
+}
+
+@layer utilities {
+  .font-display {
+    font-family: "Space Grotesk", ui-sans-serif, sans-serif;
+  }
+  .font-body {
+    font-family: "Inter", ui-sans-serif, sans-serif;
+  }
+  .font-mono {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+  }
 }
 
 @layer base {
@@ -62,49 +68,28 @@
 }
 
 @layer utilities {
-  /* Glassmorphism surface used throughout: cards, nav, form */
+  /* Solid card surface — no gradient, no visible blur. A hairline border
+     does the separating work instead of glass/glow effects. */
   .glass {
-    background: linear-gradient(160deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015));
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255,255,255,0.07);
+    background: var(--color-panel);
+    border: 1px solid var(--color-hair-soft);
   }
   .glass-hover {
-    transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+    transition: border-color 0.2s ease, transform 0.2s ease;
   }
   .glass-hover:hover {
-    border-color: rgba(53, 224, 194, 0.35);
-    box-shadow: 0 0 0 1px rgba(53, 224, 194, 0.08), 0 20px 60px -20px rgba(79, 168, 247, 0.35);
-    transform: translateY(-2px);
+    border-color: var(--color-hair);
+    transform: translateY(-1px);
   }
 
   .text-balance {
     text-wrap: balance;
   }
 
-  /* Gradient text used once, on the hero's core claim */
-  .text-aurora {
-    background: linear-gradient(100deg, var(--color-teal) 0%, var(--color-blue) 45%, var(--color-violet) 85%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-
-  /* Soft glow ring behind a focal element (diagram, avatar, cta) */
+  /* Simple subtle border, used where a focal panel previously had a
+     multicolor glow ring. */
   .glow-ring {
-    position: relative;
-  }
-  .glow-ring::before {
-    content: "";
-    position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(135deg, rgba(53,224,194,0.55), rgba(79,168,247,0.25), rgba(164,128,242,0.45));
-    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
+    border: 1px solid var(--color-hair-soft);
   }
 
   /* Twinkling keyframes for small deco dots */
@@ -118,13 +103,10 @@
 
   @keyframes drift {
     0% { transform: translate3d(0, 0, 0) scale(1); }
-    50% { transform: translate3d(2%, -3%, 0) scale(1.06); }
+    50% { transform: translate3d(2%, -2%, 0) scale(1.03); }
     100% { transform: translate3d(0, 0, 0) scale(1); }
   }
-  .animate-drift {
-    animation: drift 22s ease-in-out infinite;
-  }
   .animate-drift-slow {
-    animation: drift 34s ease-in-out infinite;
+    animation: drift 40s ease-in-out infinite;
   }
 }

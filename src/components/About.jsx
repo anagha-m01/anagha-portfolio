@@ -1,78 +1,96 @@
 import { motion } from "framer-motion";
+import { Briefcase, Code2, GraduationCap } from "lucide-react";
 
-const highlights = [
-  { value: "5", label: "cooperating LLM agents orchestrated in one pipeline" },
-  { value: "60%", label: "less manual data retrieval via automated semantic search" },
-  { value: "30%", label: "better semantic retrieval accuracy over keyword search" },
+const cards = [
+  {
+    icon: Briefcase,
+    title: "Experience",
+    detail: "Software Engineer Intern",
+    subdetail: "QuanHack Solutions · Python & AI workflows",
+  },
+  {
+    icon: Code2,
+    title: "Projects",
+    detail: "Agentic Systems & ML",
+    subdetail: "LangGraph, RAG & predictive modeling",
+  },
+  {
+    icon: GraduationCap,
+    title: "Education",
+    detail: "B.Tech in ECE",
+    subdetail: "APJ AKTU · 8.22 CGPA",
+  },
 ];
 
 export default function About() {
   return (
     <section id="about" className="relative mx-auto max-w-6xl px-5 sm:px-8 py-20 sm:py-28">
-      <div className="grid lg:grid-cols-[0.7fr_1.3fr] gap-10 lg:gap-16">
-        <motion.h2
-          initial={{ opacity: 0, y: 12 }}
+      <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 lg:gap-16 items-center">
+        {/* Left column: Humanified narrative */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
-          className="font-display text-3xl sm:text-4xl text-ink text-balance"
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          I build the reasoning layer, not just the prompt.
-        </motion.h2>
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-ink mb-6">
+            About Me
+          </h2>
 
-        <div className="max-w-2xl">
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="space-y-5 text-[16px] leading-relaxed text-ink-soft"
-          >
+          <div className="space-y-4 text-[16px] sm:text-[16.5px] leading-relaxed text-ink-soft">
             <p>
-              I design agentic AI applications where multiple LLM agents
-              cooperate through LangGraph orchestration, ground their answers
-              in retrieval instead of guessing, and stay in check with
-              guardrails and human-in-the-loop approval gates before anything
-              reaches production. RAG pipelines over pgvector, REST APIs in
-              FastAPI, async task queues in Redis, and Docker on the way out
-              — I care about the whole path from a user's query to a
-              trustworthy, grounded answer.
+              I am an AI/ML Engineer driven by a curiosity for building software products that make a real impact.
+              Transitioning from an <strong className="font-medium text-ink">Electronics Engineering</strong> background
+              into modern software development, I found my passion at the intersection where intelligent models connect
+              with solid backend systems.
             </p>
+
             <p>
-              I also integrate that intelligence into systems people already
-              use, wiring agent behavior into WhatsApp Business and the Meta
-              Cloud API rather than leaving it stuck in a notebook.
+              Currently at <strong className="font-medium text-ink">QuanHack Solutions</strong>, I engineer multi-agent
+              workflows with <strong className="font-medium text-ink">LangGraph</strong>, semantic retrieval pipelines with{" "}
+              <strong className="font-medium text-ink">pgvector</strong>, and asynchronous <strong className="font-medium text-ink">FastAPI</strong> microservices.
+              Clean, reliable, and built to solve practical everyday problems.
             </p>
-          </motion.div>
+          </div>
+        </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.55, delay: 0.2 }}
-            className="mt-9 grid sm:grid-cols-3 gap-3"
-          >
-            {highlights.map((h) => (
-              <div key={h.label} className="glass glass-hover rounded-xl p-4">
-                <p className="font-display text-2xl text-aurora">{h.value}</p>
-                <p className="mt-1.5 text-[12.5px] leading-snug text-ink-mute">{h.label}</p>
-              </div>
-            ))}
-          </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="mt-8 text-[13.5px] text-ink-mute leading-relaxed"
-          >
-            Before AI, I deployed PLC, DCS, and SCADA systems on the factory
-            floor — where a system either behaves reliably under real
-            conditions or it doesn't pass inspection. That same standard of
-            reliability guides how I build software today.
-          </motion.p>
-        </div>
+        {/* Right column: Highlights cards */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
+          className="flex flex-col gap-4"
+        >
+          {cards.map((card, idx) => {
+            const Icon = card.icon;
+            return (
+              <motion.div
+                key={card.title}
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.45, delay: 0.1 * (idx + 1) }}
+                className="group relative flex items-center gap-4 rounded-2xl border border-hair-soft bg-panel/70 p-5 backdrop-blur-sm transition-all duration-200 hover:border-hair hover:bg-panel hover:translate-y-[-2px]"
+              >
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-hair/80 bg-bg-raised text-teal transition-colors group-hover:border-teal/40 group-hover:text-teal-soft">
+                  <Icon size={22} strokeWidth={1.75} />
+                </div>
+                <div>
+                  <h3 className="font-display text-[15px] font-semibold text-ink">
+                    {card.title}
+                  </h3>
+                  <p className="text-[13.5px] text-ink-soft">
+                    {card.detail}
+                  </p>
+                  <p className="text-[12px] text-ink-mute">
+                    {card.subdetail}
+                  </p>
+                </div>
+              </motion.div>
+            );
+          })}
+        </motion.div>
       </div>
     </section>
   );
